@@ -1,0 +1,150 @@
+{"class_index": 0, "item": "inet-0000", "label": "tench", "prompt": "tench"}
+{"class_index": 4, "item": "inet-0004", "label": "hammerhead", "prompt": "hammerhead"}
+{"class_index": 6, "item": "inet-0006", "label": "stingray", "prompt": "stingray"}
+{"class_index": 13, "item": "inet-0013", "label": "junco", "prompt": "junco"}
+{"class_index": 19, "item": "inet-0019", "label": "chickadee", "prompt": "chickadee"}
+{"class_index": 21, "item": "inet-0021", "label": "kite", "prompt": "kite"}
+{"class_index": 22, "item": "inet-0022", "label": "bald eagle", "prompt": "bald eagle"}
+{"class_index": 24, "item": "inet-0024", "label": "great grey owl", "prompt": "great grey owl"}
+{"class_index": 26, "item": "inet-0026", "label": "common newt", "prompt": "common newt"}
+{"class_index": 27, "item": "inet-0027", "label": "eft", "prompt": "eft"}
+{"class_index": 28, "item": "inet-0028", "label": "spotted salamander", "prompt": "spotted salamander"}
+{"class_index": 29, "item": "inet-0029", "label": "axolotl", "prompt": "axolotl"}
+{"class_index": 40, "item": "inet-0040", "label": "American chameleon", "prompt": "American chameleon"}
+{"class_index": 41, "item": "inet-0041", "label": "whiptail", "prompt": "whiptail"}
+{"class_index": 43, "item": "inet-0043", "label": "frilled lizard", "prompt": "frilled lizard"}
+{"class_index": 44, "item": "inet-0044", "label": "alligator lizard", "prompt": "alligator lizard"}
+{"class_index": 45, "item": "inet-0045", "label": "Gila monster", "prompt": "Gila monster"}
+{"class_index": 46, "item": "inet-0046", "label": "green lizard", "prompt": "green lizard"}
+{"class_index": 49, "item": "inet-0049", "label": "African crocodile", "prompt": "African crocodile"}
+{"class_index": 50, "item": "inet-0050", "label": "American alligator", "prompt": "American alligator"}
+{"class_index": 51, "item": "inet-0051", "label": "triceratops", "prompt": "triceratops"}
+{"class_index": 54, "item": "inet-0054", "label": "hognose snake", "prompt": "hognose snake"}
+{"class_index": 55, "item": "inet-0055", "label": "green snake", "prompt": "green snake"}
+{"class_index": 57, "item": "inet-0057", "label": "garter snake", "prompt": "garter snake"}
+{"class_index": 58, "item": "inet-0058", "label": "water snake", "prompt": "water snake"}
+{"class_index": 60, "item": "inet-0060", "label": "night snake", "prompt": "night snake"}
+{"class_index": 61, "item": "inet-0061", "label": "boa constrictor", "prompt": "boa constrictor"}
+{"class_index": 63, "item": "inet-0063", "label": "Indian cobra", "prompt": "Indian cobra"}
+{"class_index": 64, "item": "inet-0064", "label": "green mamba", "prompt": "green mamba"}
+{"class_index": 65, "item": "inet-0065", "label": "sea snake", "prompt": "sea snake"}
+{"class_index": 66, "item": "inet-0066", "label": "horned viper", "prompt": "horned viper"}
+{"class_index": 73, "item": "inet-0073", "label": "barn spider", "prompt": "barn spider"}
+{"class_index": 74, "item": "inet-0074", "label": "garden spider", "prompt": "garden spider"}
+{"class_index": 75, "item": "inet-0075", "label": "black widow", "prompt": "black widow"}
+{"class_index": 85, "item": "inet-0085", "label": "quail", "prompt": "quail"}
+{"class_index": 86, "item": "inet-0086", "label": "partridge", "prompt": "partridge"}
+{"class_index": 89, "item": "inet-0089", "label": "sulphur-crested cockatoo", "prompt": "sulphur-crested cockatoo"}
+{"class_index": 90, "item": "inet-0090", "label": "lorikeet", "prompt": "lorikeet"}
+{"class_index": 91, "item": "inet-0091", "label": "coucal", "prompt": "coucal"}
+{"class_index": 95, "item": "inet-0095", "label": "jacamar", "prompt": "jacamar"}
+{"class_index": 99, "item": "inet-0099", "label": "goose", "prompt": "goose"}
+{"class_index": 105, "item": "inet-0105", "label": "koala", "prompt": "koala"}
+{"class_index": 106, "item": "inet-0106", "label": "wombat", "prompt": "wombat"}
+{"class_index": 107, "item": "inet-0107", "label": "jellyfish", "prompt": "jellyfish"}
+{"class_index": 108, "item": "inet-0108", "label": "sea anemone", "prompt": "sea anemone"}
+{"class_index": 109, "item": "inet-0109", "label": "brain coral", "prompt": "brain coral"}
+{"class_index": 110, "item": "inet-0110", "label": "flatworm", "prompt": "flatworm"}
+{"class_index": 111, "item": "inet-0111", "label": "nematode", "prompt": "nematode"}
+{"class_index": 112, "item": "inet-0112", "label": "conch", "prompt": "conch"}
+{"class_index": 113, "item": "inet-0113", "label": "snail", "prompt": "snail"}
+{"class_index": 115, "item": "inet-0115", "label": "sea slug", "prompt": "sea slug"}
+{"class_index": 117, "item": "inet-0117", "label": "chambered nautilus", "prompt": "chambered nautilus"}
+{"class_index": 119, "item": "inet-0119", "label": "rock crab", "prompt": "rock crab"}
+{"class_index": 126, "item": "inet-0126", "label": "isopod", "prompt": "isopod"}
+{"class_index": 128, "item": "inet-0128", "label": "black stork", "prompt": "black stork"}
+{"class_index": 131, "item": "inet-0131", "label": "little blue heron", "prompt": "little blue heron"}
+{"class_index": 133, "item": "inet-0133", "label": "bittern", "prompt": "bittern"}
+{"class_index": 143, "item": "inet-0143", "label": "oystercatcher", "prompt": "oystercatcher"}
+{"class_index": 144, "item": "inet-0144", "label": "pelican", "prompt": "pelican"}
+{"class_index": 149, "item": "inet-0149", "label": "dugong", "prompt": "dugong"}
+{"class_index": 155, "item": "inet-0155", "label": "Shih-Tzu", "prompt": "Shih-Tzu"}
+{"class_index": 157, "item": "inet-0157", "label": "papillon", "prompt": "papillon"}
+{"class_index": 158, "item": "inet-0158", "label": "toy terrier", "prompt": "toy terrier"}
+{"class_index": 161, "item": "inet-0161", "label": "basset", "prompt": "basset"}
+{"class_index": 166, "item": "inet-0166", "label": "Walker hound", "prompt": "Walker hound"}
+{"class_index": 169, "item": "inet-0169", "label": "borzoi", "prompt": "borzoi"}
+{"class_index": 171, "item": "inet-0171", "label": "Italian greyhound", "prompt": "Italian greyhound"}
+{"class_index": 176, "item": "inet-0176", "label": "Saluki", "prompt": "Saluki"}
+{"class_index": 177, "item": "inet-0177", "label": "Scottish deerhound", "prompt": "Scottish deerhound"}
+{"class_index": 178, "item": "inet-0178", "label": "Weimaraner", "prompt": "Weimaraner"}
+{"class_index": 182, "item": "inet-0182", "label": "Border terrier", "prompt": "Border terrier"}
+{"class_index": 183, "item": "inet-0183", "label": "Kerry blue terrier", "prompt": "Kerry blue terrier"}
+{"class_index": 186, "item": "inet-0186", "label": "Norwich terrier", "prompt": "Norwich terrier"}
+{"class_index": 193, "item": "inet-0193", "label": "Australian terrier", "prompt": "Australian terrier"}
+{"class_index": 194, "item": "inet-0194", "label": "Dandie Dinmont", "prompt": "Dandie Dinmont"}
+{"class_index": 198, "item": "inet-0198", "label": "standard schnauzer", "prompt": "standard schnauzer"}
+{"class_index": 199, "item": "inet-0199", "label": "Scotch terrier", "prompt": "Scotch terrier"}
+{"class_index": 201, "item": "inet-0201", "label": "silky terrier", "prompt": "silky terrier"}
+{"class_index": 203, "item": "inet-0203", "label": "West Highland white terrier", "prompt": "West Highland white terrier"}
+{"class_index": 205, "item": "inet-0205", "label": "flat-coated retriever", "prompt": "flat-coated retriever"}
+{"class_index": 209, "item": "inet-0209", "label": "Chesapeake Bay retriever", "prompt": "Chesapeake Bay retriever"}
+{"class_index": 211, "item": "inet-0211", "label": "vizsla", "prompt": "vizsla"}
+{"class_index": 215, "item": "inet-0215", "label": "Brittany spaniel", "prompt": "Brittany spaniel"}
+{"class_index": 217, "item": "inet-0217", "label": "English springer", "prompt": "English springer"}
+{"class_index": 219, "item": "inet-0219", "label": "cocker spaniel", "prompt": "cocker spaniel"}
+{"class_index": 220, "item": "inet-0220", "label": "Sussex spaniel", "prompt": "Sussex spaniel"}
+{"class_index": 222, "item": "inet-0222", "label": "kuvasz", "prompt": "kuvasz"}
+{"class_index": 224, "item": "inet-0224", "label": "groenendael", "prompt": "groenendael"}
+{"class_index": 225, "item": "inet-0225", "label": "malinois", "prompt": "malinois"}
+{"class_index": 226, "item": "inet-0226", "label": "briard", "prompt": "briard"}
+{"class_index": 227, "item": "inet-0227", "label": "kelpie", "prompt": "kelpie"}
+{"class_index": 231, "item": "inet-0231", "label": "collie", "prompt": "collie"}
+{"class_index": 232, "item": "inet-0232", "label": "Border collie", "prompt": "Border collie"}
+{"class_index": 235, "item": "inet-0235", "label": "German shepherd", "prompt": "German shepherd"}
+{"class_index": 237, "item": "inet-0237", "label": "miniature pinscher", "prompt": "miniature pinscher"}
+{"class_index": 239, "item": "inet-0239", "label": "Bernese mountain dog", "prompt": "Bernese mountain dog"}
+{"class_index": 240, "item": "inet-0240", "label": "Appenzeller", "prompt": "Appenzeller"}
+{"class_index": 242, "item": "inet-0242", "label": "boxer", "prompt": "boxer"}
+{"class_index": 243, "item": "inet-0243", "label": "bull mastiff", "prompt": "bull mastiff"}
+{"class_index": 244, "item": "inet-0244", "label": "Tibetan mastiff", "prompt": "Tibetan mastiff"}
+{"class_index": 247, "item": "inet-0247", "label": "Saint Bernard", "prompt": "Saint Bernard"}
+{"class_index": 248, "item": "inet-0248", "label": "Eskimo dog", "prompt": "Eskimo dog"}
+{"class_index": 250, "item": "inet-0250", "label": "Siberian husky", "prompt": "Siberian husky"}
+{"class_index": 257, "item": "inet-0257", "label": "Great Pyrenees", "prompt": "Great Pyrenees"}
+{"class_index": 259, "item": "inet-0259", "label": "Pomeranian", "prompt": "Pomeranian"}
+{"class_index": 260, "item": "inet-0260", "label": "chow", "prompt": "chow"}
+{"class_index": 261, "item": "inet-0261", "label": "keeshond", "prompt": "keeshond"}
+{"class_index": 263, "item": "inet-0263", "label": "Pembroke", "prompt": "Pembroke"}
+{"class_index": 264, "item": "inet-0264", "label": "Cardigan", "prompt": "Cardigan"}
+{"class_index": 273, "item": "inet-0273", "label": "dingo", "prompt": "dingo"}
+{"class_index": 279, "item": "inet-0279", "label": "Arctic fox", "prompt": "Arctic fox"}
+{"class_index": 280, "item": "inet-0280", "label": "grey fox", "prompt": "grey fox"}
+{"class_index": 283, "item": "inet-0283", "label": "Persian cat", "prompt": "Persian cat"}
+{"class_index": 286, "item": "inet-0286", "label": "cougar", "prompt": "cougar"}
+{"class_index": 289, "item": "inet-0289", "label": "snow leopard", "prompt": "snow leopard"}
+{"class_index": 290, "item": "inet-0290", "label": "jaguar", "prompt": "jaguar"}
+{"class_index": 294, "item": "inet-0294", "label": "brown bear", "prompt": "brown bear"}
+{"class_index": 295, "item": "inet-0295", "label": "American black bear", "prompt": "American black bear"}
+{"class_index": 302, "item": "inet-0302", "label": "ground beetle", "prompt": "ground beetle"}
+{"class_index": 305, "item": "inet-0305", "label": "dung beetle", "prompt": "dung beetle"}
+{"class_index": 311, "item": "inet-0311", "label": "grasshopper", "prompt": "grasshopper"}
+{"class_index": 313, "item": "inet-0313", "label": "walking stick", "prompt": "walking stick"}
+{"class_index": 314, "item": "inet-0314", "label": "cockroach", "prompt": "cockroach"}
+{"class_index": 315, "item": "inet-0315", "label": "mantis", "prompt": "mantis"}
+{"class_index": 316, "item": "inet-0316", "label": "cicada", "prompt": "cicada"}
+{"class_index": 318, "item": "inet-0318", "label": "lacewing", "prompt": "lacewing"}
+{"class_index": 320, "item": "inet-0320", "label": "damselfly", "prompt": "damselfly"}
+{"class_index": 322, "item": "inet-0322", "label": "ringlet", "prompt": "ringlet"}
+{"class_index": 324, "item": "inet-0324", "label": "cabbage butterfly", "prompt": "cabbage butterfly"}
+{"class_index": 327, "item": "inet-0327", "label": "starfish", "prompt": "starfish"}
+{"class_index": 332, "item": "inet-0332", "label": "Angora", "prompt": "Angora"}
+{"class_index": 337, "item": "inet-0337", "label": "beaver", "prompt": "beaver"}
+{"class_index": 339, "item": "inet-0339", "label": "sorrel", "prompt": "sorrel"}
+{"class_index": 344, "item": "inet-0344", "label": "hippopotamus", "prompt": "hippopotamus"}
+{"class_index": 346, "item": "inet-0346", "label": "water buffalo", "prompt": "water buffalo"}
+{"class_index": 348, "item": "inet-0348", "label": "ram", "prompt": "ram"}
+{"class_index": 349, "item": "inet-0349", "label": "bighorn", "prompt": "bighorn"}
+{"class_index": 352, "item": "inet-0352", "label": "impala", "prompt": "impala"}
+{"class_index": 355, "item": "inet-0355", "label": "llama", "prompt": "llama"}
+{"class_index": 356, "item": "inet-0356", "label": "weasel", "prompt": "weasel"}
+{"class_index": 361, "item": "inet-0361", "label": "skunk", "prompt": "skunk"}
+{"class_index": 364, "item": "inet-0364", "label": "three-toed sloth", "prompt": "three-toed sloth"}
+{"class_index": 371, "item": "inet-0371", "label": "patas", "prompt": "patas"}
+{"class_index": 373, "item": "inet-0373", "label": "macaque", "prompt": "macaque"}
+{"class_index": 374, "item": "inet-0374", "label": "langur", "prompt": "langur"}
+{"class_index": 380, "item": "inet-0380", "label": "titi", "prompt": "titi"}
+{"class_index": 386, "item": "inet-0386", "label": "African elephant", "prompt": "African elephant"}
+{"class_index": 390, "item": "inet-0390", "label": "eel", "prompt": "eel"}
+{"class_index": 393, "item": "inet-0393", "label": "anemone fish", "prompt": "anemone fish"}
+{"class_index": 394, "item": "inet-0394", "label": "sturgeon", "prompt": "sturgeon"}

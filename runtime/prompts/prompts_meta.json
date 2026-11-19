@@ -1,0 +1,24 @@
+{
+  "schema": "ptc_mm.sd15_train_prompts",
+  "schema_version": "1.0",
+  "source": {
+    "file": "data-source/imagenet_classes.txt",
+    "origin": "kvablack/ddpo-pytorch@1958463f020112c9a7bc85768d296daacc2e1b4b ddpo_pytorch/assets/imagenet_classes.txt (lines 1-398 = classes 0-397, prompts.py:35-36)",
+    "prompt_rule": "the first comma-separated name of the class line",
+    "sha256": "sha256:a40d9be82eb4738becd1dd69991b89f87f309975e860a6f3f45395d8c06a7e0d"
+  },
+  "split": {
+    "exact_overlap": 0,
+    "generator": "numpy default_rng(SeedSequence([0x5d15a3, split_seed])).permutation(398); the first n_items classes are held out as items, the rest form the training shard",
+    "n_classes": 398,
+    "n_items": 150,
+    "n_train": 248,
+    "numpy": "2.5.4",
+    "split_seed": 20261112
+  },
+  "tags": [
+    "prototype",
+    "unpromotable"
+  ],
+  "train_sha256": "sha256:37dbad02462911abad1b59e205318fbcfb3586bfe112fcb48ce4f6cd590904e8"
+}

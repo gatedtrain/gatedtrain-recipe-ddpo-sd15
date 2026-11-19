@@ -1,0 +1,248 @@
+{"class_index": 1, "prompt": "goldfish", "prompt_id": "inet-0001"}
+{"class_index": 2, "prompt": "great white shark", "prompt_id": "inet-0002"}
+{"class_index": 3, "prompt": "tiger shark", "prompt_id": "inet-0003"}
+{"class_index": 5, "prompt": "electric ray", "prompt_id": "inet-0005"}
+{"class_index": 7, "prompt": "cock", "prompt_id": "inet-0007"}
+{"class_index": 8, "prompt": "hen", "prompt_id": "inet-0008"}
+{"class_index": 9, "prompt": "ostrich", "prompt_id": "inet-0009"}
+{"class_index": 10, "prompt": "brambling", "prompt_id": "inet-0010"}
+{"class_index": 11, "prompt": "goldfinch", "prompt_id": "inet-0011"}
+{"class_index": 12, "prompt": "house finch", "prompt_id": "inet-0012"}
+{"class_index": 14, "prompt": "indigo bunting", "prompt_id": "inet-0014"}
+{"class_index": 15, "prompt": "robin", "prompt_id": "inet-0015"}
+{"class_index": 16, "prompt": "bulbul", "prompt_id": "inet-0016"}
+{"class_index": 17, "prompt": "jay", "prompt_id": "inet-0017"}
+{"class_index": 18, "prompt": "magpie", "prompt_id": "inet-0018"}
+{"class_index": 20, "prompt": "water ouzel", "prompt_id": "inet-0020"}
+{"class_index": 23, "prompt": "vulture", "prompt_id": "inet-0023"}
+{"class_index": 25, "prompt": "European fire salamander", "prompt_id": "inet-0025"}
+{"class_index": 30, "prompt": "bullfrog", "prompt_id": "inet-0030"}
+{"class_index": 31, "prompt": "tree frog", "prompt_id": "inet-0031"}
+{"class_index": 32, "prompt": "tailed frog", "prompt_id": "inet-0032"}
+{"class_index": 33, "prompt": "loggerhead", "prompt_id": "inet-0033"}
+{"class_index": 34, "prompt": "leatherback turtle", "prompt_id": "inet-0034"}
+{"class_index": 35, "prompt": "mud turtle", "prompt_id": "inet-0035"}
+{"class_index": 36, "prompt": "terrapin", "prompt_id": "inet-0036"}
+{"class_index": 37, "prompt": "box turtle", "prompt_id": "inet-0037"}
+{"class_index": 38, "prompt": "banded gecko", "prompt_id": "inet-0038"}
+{"class_index": 39, "prompt": "common iguana", "prompt_id": "inet-0039"}
+{"class_index": 42, "prompt": "agama", "prompt_id": "inet-0042"}
+{"class_index": 47, "prompt": "African chameleon", "prompt_id": "inet-0047"}
+{"class_index": 48, "prompt": "Komodo dragon", "prompt_id": "inet-0048"}
+{"class_index": 52, "prompt": "thunder snake", "prompt_id": "inet-0052"}
+{"class_index": 53, "prompt": "ringneck snake", "prompt_id": "inet-0053"}
+{"class_index": 56, "prompt": "king snake", "prompt_id": "inet-0056"}
+{"class_index": 59, "prompt": "vine snake", "prompt_id": "inet-0059"}
+{"class_index": 62, "prompt": "rock python", "prompt_id": "inet-0062"}
+{"class_index": 67, "prompt": "diamondback", "prompt_id": "inet-0067"}
+{"class_index": 68, "prompt": "sidewinder", "prompt_id": "inet-0068"}
+{"class_index": 69, "prompt": "trilobite", "prompt_id": "inet-0069"}
+{"class_index": 70, "prompt": "harvestman", "prompt_id": "inet-0070"}
+{"class_index": 71, "prompt": "scorpion", "prompt_id": "inet-0071"}
+{"class_index": 72, "prompt": "black and gold garden spider", "prompt_id": "inet-0072"}
+{"class_index": 76, "prompt": "tarantula", "prompt_id": "inet-0076"}
+{"class_index": 77, "prompt": "wolf spider", "prompt_id": "inet-0077"}
+{"class_index": 78, "prompt": "tick", "prompt_id": "inet-0078"}
+{"class_index": 79, "prompt": "centipede", "prompt_id": "inet-0079"}
+{"class_index": 80, "prompt": "black grouse", "prompt_id": "inet-0080"}
+{"class_index": 81, "prompt": "ptarmigan", "prompt_id": "inet-0081"}
+{"class_index": 82, "prompt": "ruffed grouse", "prompt_id": "inet-0082"}
+{"class_index": 83, "prompt": "prairie chicken", "prompt_id": "inet-0083"}
+{"class_index": 84, "prompt": "peacock", "prompt_id": "inet-0084"}
+{"class_index": 87, "prompt": "African grey", "prompt_id": "inet-0087"}
+{"class_index": 88, "prompt": "macaw", "prompt_id": "inet-0088"}
+{"class_index": 92, "prompt": "bee eater", "prompt_id": "inet-0092"}
+{"class_index": 93, "prompt": "hornbill", "prompt_id": "inet-0093"}
+{"class_index": 94, "prompt": "hummingbird", "prompt_id": "inet-0094"}
+{"class_index": 96, "prompt": "toucan", "prompt_id": "inet-0096"}
+{"class_index": 97, "prompt": "drake", "prompt_id": "inet-0097"}
+{"class_index": 98, "prompt": "red-breasted merganser", "prompt_id": "inet-0098"}
+{"class_index": 100, "prompt": "black swan", "prompt_id": "inet-0100"}
+{"class_index": 101, "prompt": "tusker", "prompt_id": "inet-0101"}
+{"class_index": 102, "prompt": "echidna", "prompt_id": "inet-0102"}
+{"class_index": 103, "prompt": "platypus", "prompt_id": "inet-0103"}
+{"class_index": 104, "prompt": "wallaby", "prompt_id": "inet-0104"}
+{"class_index": 114, "prompt": "slug", "prompt_id": "inet-0114"}
+{"class_index": 116, "prompt": "chiton", "prompt_id": "inet-0116"}
+{"class_index": 118, "prompt": "Dungeness crab", "prompt_id": "inet-0118"}
+{"class_index": 120, "prompt": "fiddler crab", "prompt_id": "inet-0120"}
+{"class_index": 121, "prompt": "king crab", "prompt_id": "inet-0121"}
+{"class_index": 122, "prompt": "American lobster", "prompt_id": "inet-0122"}
+{"class_index": 123, "prompt": "spiny lobster", "prompt_id": "inet-0123"}
+{"class_index": 124, "prompt": "crayfish", "prompt_id": "inet-0124"}
+{"class_index": 125, "prompt": "hermit crab", "prompt_id": "inet-0125"}
+{"class_index": 127, "prompt": "white stork", "prompt_id": "inet-0127"}
+{"class_index": 129, "prompt": "spoonbill", "prompt_id": "inet-0129"}
+{"class_index": 130, "prompt": "flamingo", "prompt_id": "inet-0130"}
+{"class_index": 132, "prompt": "American egret", "prompt_id": "inet-0132"}
+{"class_index": 134, "prompt": "crane", "prompt_id": "inet-0134"}
+{"class_index": 135, "prompt": "limpkin", "prompt_id": "inet-0135"}
+{"class_index": 136, "prompt": "European gallinule", "prompt_id": "inet-0136"}
+{"class_index": 137, "prompt": "American coot", "prompt_id": "inet-0137"}
+{"class_index": 138, "prompt": "bustard", "prompt_id": "inet-0138"}
+{"class_index": 139, "prompt": "ruddy turnstone", "prompt_id": "inet-0139"}
+{"class_index": 140, "prompt": "red-backed sandpiper", "prompt_id": "inet-0140"}
+{"class_index": 141, "prompt": "redshank", "prompt_id": "inet-0141"}
+{"class_index": 142, "prompt": "dowitcher", "prompt_id": "inet-0142"}
+{"class_index": 145, "prompt": "king penguin", "prompt_id": "inet-0145"}
+{"class_index": 146, "prompt": "albatross", "prompt_id": "inet-0146"}
+{"class_index": 147, "prompt": "grey whale", "prompt_id": "inet-0147"}
+{"class_index": 148, "prompt": "killer whale", "prompt_id": "inet-0148"}
+{"class_index": 150, "prompt": "sea lion", "prompt_id": "inet-0150"}
+{"class_index": 151, "prompt": "Chihuahua", "prompt_id": "inet-0151"}
+{"class_index": 152, "prompt": "Japanese spaniel", "prompt_id": "inet-0152"}
+{"class_index": 153, "prompt": "Maltese dog", "prompt_id": "inet-0153"}
+{"class_index": 154, "prompt": "Pekinese", "prompt_id": "inet-0154"}
+{"class_index": 156, "prompt": "Blenheim spaniel", "prompt_id": "inet-0156"}
+{"class_index": 159, "prompt": "Rhodesian ridgeback", "prompt_id": "inet-0159"}
+{"class_index": 160, "prompt": "Afghan hound", "prompt_id": "inet-0160"}
+{"class_index": 162, "prompt": "beagle", "prompt_id": "inet-0162"}
+{"class_index": 163, "prompt": "bloodhound", "prompt_id": "inet-0163"}
+{"class_index": 164, "prompt": "bluetick", "prompt_id": "inet-0164"}
+{"class_index": 165, "prompt": "black-and-tan coonhound", "prompt_id": "inet-0165"}
+{"class_index": 167, "prompt": "English foxhound", "prompt_id": "inet-0167"}
+{"class_index": 168, "prompt": "redbone", "prompt_id": "inet-0168"}
+{"class_index": 170, "prompt": "Irish wolfhound", "prompt_id": "inet-0170"}
+{"class_index": 172, "prompt": "whippet", "prompt_id": "inet-0172"}
+{"class_index": 173, "prompt": "Ibizan hound", "prompt_id": "inet-0173"}
+{"class_index": 174, "prompt": "Norwegian elkhound", "prompt_id": "inet-0174"}
+{"class_index": 175, "prompt": "otterhound", "prompt_id": "inet-0175"}
+{"class_index": 179, "prompt": "Staffordshire bullterrier", "prompt_id": "inet-0179"}
+{"class_index": 180, "prompt": "American Staffordshire terrier", "prompt_id": "inet-0180"}
+{"class_index": 181, "prompt": "Bedlington terrier", "prompt_id": "inet-0181"}
+{"class_index": 184, "prompt": "Irish terrier", "prompt_id": "inet-0184"}
+{"class_index": 185, "prompt": "Norfolk terrier", "prompt_id": "inet-0185"}
+{"class_index": 187, "prompt": "Yorkshire terrier", "prompt_id": "inet-0187"}
+{"class_index": 188, "prompt": "wire-haired fox terrier", "prompt_id": "inet-0188"}
+{"class_index": 189, "prompt": "Lakeland terrier", "prompt_id": "inet-0189"}
+{"class_index": 190, "prompt": "Sealyham terrier", "prompt_id": "inet-0190"}
+{"class_index": 191, "prompt": "Airedale", "prompt_id": "inet-0191"}
+{"class_index": 192, "prompt": "cairn", "prompt_id": "inet-0192"}
+{"class_index": 195, "prompt": "Boston bull", "prompt_id": "inet-0195"}
+{"class_index": 196, "prompt": "miniature schnauzer", "prompt_id": "inet-0196"}
+{"class_index": 197, "prompt": "giant schnauzer", "prompt_id": "inet-0197"}
+{"class_index": 200, "prompt": "Tibetan terrier", "prompt_id": "inet-0200"}
+{"class_index": 202, "prompt": "soft-coated wheaten terrier", "prompt_id": "inet-0202"}
+{"class_index": 204, "prompt": "Lhasa", "prompt_id": "inet-0204"}
+{"class_index": 206, "prompt": "curly-coated retriever", "prompt_id": "inet-0206"}
+{"class_index": 207, "prompt": "golden retriever", "prompt_id": "inet-0207"}
+{"class_index": 208, "prompt": "Labrador retriever", "prompt_id": "inet-0208"}
+{"class_index": 210, "prompt": "German short-haired pointer", "prompt_id": "inet-0210"}
+{"class_index": 212, "prompt": "English setter", "prompt_id": "inet-0212"}
+{"class_index": 213, "prompt": "Irish setter", "prompt_id": "inet-0213"}
+{"class_index": 214, "prompt": "Gordon setter", "prompt_id": "inet-0214"}
+{"class_index": 216, "prompt": "clumber", "prompt_id": "inet-0216"}
+{"class_index": 218, "prompt": "Welsh springer spaniel", "prompt_id": "inet-0218"}
+{"class_index": 221, "prompt": "Irish water spaniel", "prompt_id": "inet-0221"}
+{"class_index": 223, "prompt": "schipperke", "prompt_id": "inet-0223"}
+{"class_index": 228, "prompt": "komondor", "prompt_id": "inet-0228"}
+{"class_index": 229, "prompt": "Old English sheepdog", "prompt_id": "inet-0229"}
+{"class_index": 230, "prompt": "Shetland sheepdog", "prompt_id": "inet-0230"}
+{"class_index": 233, "prompt": "Bouvier des Flandres", "prompt_id": "inet-0233"}
+{"class_index": 234, "prompt": "Rottweiler", "prompt_id": "inet-0234"}
+{"class_index": 236, "prompt": "Doberman", "prompt_id": "inet-0236"}
+{"class_index": 238, "prompt": "Greater Swiss Mountain dog", "prompt_id": "inet-0238"}
+{"class_index": 241, "prompt": "EntleBucher", "prompt_id": "inet-0241"}
+{"class_index": 245, "prompt": "French bulldog", "prompt_id": "inet-0245"}
+{"class_index": 246, "prompt": "Great Dane", "prompt_id": "inet-0246"}
+{"class_index": 249, "prompt": "malamute", "prompt_id": "inet-0249"}
+{"class_index": 251, "prompt": "dalmatian", "prompt_id": "inet-0251"}
+{"class_index": 252, "prompt": "affenpinscher", "prompt_id": "inet-0252"}
+{"class_index": 253, "prompt": "basenji", "prompt_id": "inet-0253"}
+{"class_index": 254, "prompt": "pug", "prompt_id": "inet-0254"}
+{"class_index": 255, "prompt": "Leonberg", "prompt_id": "inet-0255"}
+{"class_index": 256, "prompt": "Newfoundland", "prompt_id": "inet-0256"}
+{"class_index": 258, "prompt": "Samoyed", "prompt_id": "inet-0258"}
+{"class_index": 262, "prompt": "Brabancon griffon", "prompt_id": "inet-0262"}
+{"class_index": 265, "prompt": "toy poodle", "prompt_id": "inet-0265"}
+{"class_index": 266, "prompt": "miniature poodle", "prompt_id": "inet-0266"}
+{"class_index": 267, "prompt": "standard poodle", "prompt_id": "inet-0267"}
+{"class_index": 268, "prompt": "Mexican hairless", "prompt_id": "inet-0268"}
+{"class_index": 269, "prompt": "timber wolf", "prompt_id": "inet-0269"}
+{"class_index": 270, "prompt": "white wolf", "prompt_id": "inet-0270"}
+{"class_index": 271, "prompt": "red wolf", "prompt_id": "inet-0271"}
+{"class_index": 272, "prompt": "coyote", "prompt_id": "inet-0272"}
+{"class_index": 274, "prompt": "dhole", "prompt_id": "inet-0274"}
+{"class_index": 275, "prompt": "African hunting dog", "prompt_id": "inet-0275"}
+{"class_index": 276, "prompt": "hyena", "prompt_id": "inet-0276"}
+{"class_index": 277, "prompt": "red fox", "prompt_id": "inet-0277"}
+{"class_index": 278, "prompt": "kit fox", "prompt_id": "inet-0278"}
+{"class_index": 281, "prompt": "tabby", "prompt_id": "inet-0281"}
+{"class_index": 282, "prompt": "tiger cat", "prompt_id": "inet-0282"}
+{"class_index": 284, "prompt": "Siamese cat", "prompt_id": "inet-0284"}
+{"class_index": 285, "prompt": "Egyptian cat", "prompt_id": "inet-0285"}
+{"class_index": 287, "prompt": "lynx", "prompt_id": "inet-0287"}
+{"class_index": 288, "prompt": "leopard", "prompt_id": "inet-0288"}
+{"class_index": 291, "prompt": "lion", "prompt_id": "inet-0291"}
+{"class_index": 292, "prompt": "tiger", "prompt_id": "inet-0292"}
+{"class_index": 293, "prompt": "cheetah", "prompt_id": "inet-0293"}
+{"class_index": 296, "prompt": "ice bear", "prompt_id": "inet-0296"}
+{"class_index": 297, "prompt": "sloth bear", "prompt_id": "inet-0297"}
+{"class_index": 298, "prompt": "mongoose", "prompt_id": "inet-0298"}
+{"class_index": 299, "prompt": "meerkat", "prompt_id": "inet-0299"}
+{"class_index": 300, "prompt": "tiger beetle", "prompt_id": "inet-0300"}
+{"class_index": 301, "prompt": "ladybug", "prompt_id": "inet-0301"}
+{"class_index": 303, "prompt": "long-horned beetle", "prompt_id": "inet-0303"}
+{"class_index": 304, "prompt": "leaf beetle", "prompt_id": "inet-0304"}
+{"class_index": 306, "prompt": "rhinoceros beetle", "prompt_id": "inet-0306"}
+{"class_index": 307, "prompt": "weevil", "prompt_id": "inet-0307"}
+{"class_index": 308, "prompt": "fly", "prompt_id": "inet-0308"}
+{"class_index": 309, "prompt": "bee", "prompt_id": "inet-0309"}
+{"class_index": 310, "prompt": "ant", "prompt_id": "inet-0310"}
+{"class_index": 312, "prompt": "cricket", "prompt_id": "inet-0312"}
+{"class_index": 317, "prompt": "leafhopper", "prompt_id": "inet-0317"}
+{"class_index": 319, "prompt": "dragonfly", "prompt_id": "inet-0319"}
+{"class_index": 321, "prompt": "admiral", "prompt_id": "inet-0321"}
+{"class_index": 323, "prompt": "monarch", "prompt_id": "inet-0323"}
+{"class_index": 325, "prompt": "sulphur butterfly", "prompt_id": "inet-0325"}
+{"class_index": 326, "prompt": "lycaenid", "prompt_id": "inet-0326"}
+{"class_index": 328, "prompt": "sea urchin", "prompt_id": "inet-0328"}
+{"class_index": 329, "prompt": "sea cucumber", "prompt_id": "inet-0329"}
+{"class_index": 330, "prompt": "wood rabbit", "prompt_id": "inet-0330"}
+{"class_index": 331, "prompt": "hare", "prompt_id": "inet-0331"}
+{"class_index": 333, "prompt": "hamster", "prompt_id": "inet-0333"}
+{"class_index": 334, "prompt": "porcupine", "prompt_id": "inet-0334"}
+{"class_index": 335, "prompt": "fox squirrel", "prompt_id": "inet-0335"}
+{"class_index": 336, "prompt": "marmot", "prompt_id": "inet-0336"}
+{"class_index": 338, "prompt": "guinea pig", "prompt_id": "inet-0338"}
+{"class_index": 340, "prompt": "zebra", "prompt_id": "inet-0340"}
+{"class_index": 341, "prompt": "hog", "prompt_id": "inet-0341"}
+{"class_index": 342, "prompt": "wild boar", "prompt_id": "inet-0342"}
+{"class_index": 343, "prompt": "warthog", "prompt_id": "inet-0343"}
+{"class_index": 345, "prompt": "ox", "prompt_id": "inet-0345"}
+{"class_index": 347, "prompt": "bison", "prompt_id": "inet-0347"}
+{"class_index": 350, "prompt": "ibex", "prompt_id": "inet-0350"}
+{"class_index": 351, "prompt": "hartebeest", "prompt_id": "inet-0351"}
+{"class_index": 353, "prompt": "gazelle", "prompt_id": "inet-0353"}
+{"class_index": 354, "prompt": "Arabian camel", "prompt_id": "inet-0354"}
+{"class_index": 357, "prompt": "mink", "prompt_id": "inet-0357"}
+{"class_index": 358, "prompt": "polecat", "prompt_id": "inet-0358"}
+{"class_index": 359, "prompt": "black-footed ferret", "prompt_id": "inet-0359"}
+{"class_index": 360, "prompt": "otter", "prompt_id": "inet-0360"}
+{"class_index": 362, "prompt": "badger", "prompt_id": "inet-0362"}
+{"class_index": 363, "prompt": "armadillo", "prompt_id": "inet-0363"}
+{"class_index": 365, "prompt": "orangutan", "prompt_id": "inet-0365"}
+{"class_index": 366, "prompt": "gorilla", "prompt_id": "inet-0366"}
+{"class_index": 367, "prompt": "chimpanzee", "prompt_id": "inet-0367"}
+{"class_index": 368, "prompt": "gibbon", "prompt_id": "inet-0368"}
+{"class_index": 369, "prompt": "siamang", "prompt_id": "inet-0369"}
+{"class_index": 370, "prompt": "guenon", "prompt_id": "inet-0370"}
+{"class_index": 372, "prompt": "baboon", "prompt_id": "inet-0372"}
+{"class_index": 375, "prompt": "colobus", "prompt_id": "inet-0375"}
+{"class_index": 376, "prompt": "proboscis monkey", "prompt_id": "inet-0376"}
+{"class_index": 377, "prompt": "marmoset", "prompt_id": "inet-0377"}
+{"class_index": 378, "prompt": "capuchin", "prompt_id": "inet-0378"}
+{"class_index": 379, "prompt": "howler monkey", "prompt_id": "inet-0379"}
+{"class_index": 381, "prompt": "spider monkey", "prompt_id": "inet-0381"}
+{"class_index": 382, "prompt": "squirrel monkey", "prompt_id": "inet-0382"}
+{"class_index": 383, "prompt": "Madagascar cat", "prompt_id": "inet-0383"}
+{"class_index": 384, "prompt": "indri", "prompt_id": "inet-0384"}
+{"class_index": 385, "prompt": "Indian elephant", "prompt_id": "inet-0385"}
+{"class_index": 387, "prompt": "lesser panda", "prompt_id": "inet-0387"}
+{"class_index": 388, "prompt": "giant panda", "prompt_id": "inet-0388"}
+{"class_index": 389, "prompt": "barracouta", "prompt_id": "inet-0389"}
+{"class_index": 391, "prompt": "coho", "prompt_id": "inet-0391"}
+{"class_index": 392, "prompt": "rock beauty", "prompt_id": "inet-0392"}
+{"class_index": 395, "prompt": "gar", "prompt_id": "inet-0395"}
+{"class_index": 396, "prompt": "lionfish", "prompt_id": "inet-0396"}
+{"class_index": 397, "prompt": "puffer", "prompt_id": "inet-0397"}

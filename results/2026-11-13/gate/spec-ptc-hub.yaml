@@ -1,0 +1,38 @@
+# Area "image generation, SD1.5" workflow: DDPO + LoRA on SD1.5 with the JPEG compressibility reward, gated on lossless
+# WebP size (MULTIMODAL-SPEC sections 5-7, row 2a and its deviations; runtime/README.md "Decisions taken").
+# prototype, unpromotable. DRAFT (ptc-hub side, 2026-11-12); the real file is written under
+# <data-root>/area3-sd15/gate/ (as area 2) with registration.yaml and trainer.yaml beside it. The gate
+# directory lies inside the read-only area3-sd15 mount but outside every hashed artifact (base, prompts, items).
+# One training stage outside ptc-hub (train_ddpo.py; ext-launch prints the command, gpu-step.sh runs it) and one
+# superiority gate on eval_images.py arms filled by ext-arm-fill, collected by `ptc-hub ext-collect --adapter ddpo_sd15`.
+# `ptc-hub run` refuses this spec.
+# base is the plain SD1.5 directory (MM-18: the baseline arm evaluates the base alone), pinned by its T0-09 manifest hash
+# (computed 2026-11-12 with ptc-hub; it is also the baseline's model hash). prompts is the training prompt directory
+# (one shard train.jsonl, plus prompts_meta.json); items the registered set. Both lie inside the read-only area3-sd15
+# identity mount (EXT-121, EXT-122). Re-pin the registration hash after any amendment.
+workflow: mm-a3-sd15-ddpo
+version: 1
+budget: {gpu_hours: 24}
+artifacts:
+  base:         {type: model_checkpoint, uri: "file:<data-root>/area3-sd15/models/stable-diffusion-v1-5@sha256:1d99f8b61d787ed9d67942b14a61264397ee3ccf66baf5bcd72743b814f56487"}
+  prompts:      {type: training_dataset, uri: "file:<data-root>/area3-sd15/prompts@sha256:a75f8fb3ba33f339a4d63b5d84e9e13638aa71a5d309d8fe31b179d0e13df8ee"}
+  items:        {type: item_set, uri: "file:<data-root>/area3-sd15/items@sha256:0a4af3f984aacdd51fe2bed497667f62c50cb487bb991311b854a2c6cd395bd4", disjoint_from: [prompts]}
+  trainer_cfg:  {type: trainer_config, uri: "file:trainer.yaml@sha256:0aff6518257f2c7371d67874bc4b5f5a39e5c2a7eb36220cf2e2615778af9ec0"}
+  registration: {type: registration, uri: "file:registration-ptc-hub.yaml@sha256:c6fdb8459d226c6063c1071dca5028839b18f7ded43f562014bbcb791f42ddbf"}
+stages:
+  - id: rl
+    uses: rl.ddpo@0.1
+    algorithm: ddpo
+    model_family: t2i.sd15_lora@0.1
+    inputs: {model: base, data: prompts, config: trainer_cfg}
+    outputs: {model: rl_ckpt}
+  - id: quality_gate
+    uses: gate.superiority@1.0
+    evaluator: t2i.sd15_webp_items@0.1
+    sampler: deployment
+    inputs: {model: rl_ckpt, baseline: base, items: items, registration: registration}
+    # mde must equal the registration's planning_effect (G-4); set both from the smoke pilot (EVAL-PLAN.md section 2).
+    test: {metric: webp_lossless_bpp, alpha: 0.025, power: 0.80, mde: 0.06, cluster_by: item, seeds: 2}
+    on_fail: stop
+    owner: skeleton-demo
+    escalation: [skeleton-demo-lead]

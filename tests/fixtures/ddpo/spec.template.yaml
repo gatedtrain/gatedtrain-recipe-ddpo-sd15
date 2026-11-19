@@ -1,0 +1,29 @@
+# Area "image generation, SD1.5" fixture spec: DDPO + LoRA on SD1.5 gated against the base alone (verifier-owned;
+# prototype, unpromotable). tests/README.md section 11.20. Rendered by tests/_ddpo.py: {base} is the plain SD1.5 base
+# directory (MM-18: the baseline arm evaluates the base alone), {data} the training prompt directory (one shard,
+# train.jsonl), {items} the registered item set, {registration_sha256} the SHA-256 of the rendered registration.yaml.
+workflow: ext-ddpo-fixture
+version: 1
+budget: {gpu_hours: 24}
+artifacts:
+  base:         {type: model_checkpoint, uri: "file:{base}"}
+  prompts:      {type: training_dataset, uri: "file:{data}"}
+  items:        {type: item_set, uri: "file:{items}", disjoint_from: [prompts]}
+  trainer_cfg:  {type: trainer_config, uri: "file:trainer.yaml"}
+  registration: {type: registration, uri: "file:registration.yaml@sha256:{registration_sha256}"}
+stages:
+  - id: rl
+    uses: rl.ddpo@0.1
+    algorithm: ddpo
+    model_family: t2i.sd15_lora@0.1
+    inputs: {model: base, data: prompts, config: trainer_cfg}
+    outputs: {model: rl_ckpt}
+  - id: quality_gate
+    uses: gate.superiority@1.0
+    evaluator: t2i.sd15_webp_items@0.1
+    sampler: deployment
+    inputs: {model: rl_ckpt, baseline: base, items: items, registration: registration}
+    test: {metric: webp_lossless_bpp, alpha: 0.025, power: 0.80, mde: 0.2, cluster_by: item, seeds: 2}
+    on_fail: stop
+    owner: skeleton-demo
+    escalation: [skeleton-demo-lead]

@@ -1,0 +1,54 @@
+# Area "image generation, SD1.5" fixture registration (verifier-owned; prototype, unpromotable). tests/README.md
+# section 11.20. Rendered by tests/_ddpo.py: {item_set_hash} is the manifest hash of the fixture item set, {sampler}
+# the deployment sampler of the fixture cuts (sampler.json, as JSON flow), {evaluator_hash} the identity hash of
+# t2i.sd15_webp_items@0.1 (EXT-6).
+# The shape of the area's registration (area3-sd15 README "Power", runtime/README.md "Decisions taken"):
+# deciding T3 metric webp_lossless_bpp (lower is better, construct-aligned with the JPEG reward, R15-1), superiority
+# with margin 0, N 150, K 2, eval seeds 11 and 12, alpha 0.025 one-sided, power 0.8. Fixture sigma 0.6 and planning
+# effect 0.2: n_required = ceil(((1.95996 + 0.84162) x 0.6 / 0.2)^2) = 71 <= 150.
+registration_version: 1
+registration_id: ext-ddpo-fixture-superiority-v1
+signed_by: prototype-unsigned
+workflow: ext-ddpo-fixture
+gate: quality_gate
+clause:
+  type: superiority
+  metric: webp_lossless_bpp
+  direction: lower_is_better
+  margin: 0.0
+  alpha: 0.025
+  power: 0.8
+  planning_effect: 0.2
+  sigma_plan: fixed
+  unit: item
+  samples_per_item: 2
+  eval_seeds: [11, 12]
+  interval: cluster_bootstrap
+  blocking: true
+margin_justification: Fixture value (superiority, delta_sup = 0).
+sigma_pilot:
+  sigma: 0.6
+  source: Fixture value; the area's sigma comes from the smoke run's 20-item pilot.
+baseline_pilot_mean: 8.9
+construct_alignment: >-
+  webp_lossless_bpp measures the construct of the training reward jpeg_compressibility (image information content)
+  with another engine (libwebp lossless, not libjpeg). A pass shows that the reward's gain transfers to another codec,
+  not that the images are better.
+eval_distribution:
+  item_set_hash: "{item_set_hash}"
+sampler: {sampler}
+evaluators:
+  - id: t2i.sd15_webp_items@0.1
+    manifest_hash: "{evaluator_hash}"
+multiplicity:
+  plan: single_gate
+  family: null
+analysis_code_version: gatedtrain 0.3.0
+bootstrap:
+  replicates: 10000
+  seed: 20261112
+pairing:
+  max_unpaired: 0
+min_paired: 10
+contamination:
+  allow_exact_overlap: false

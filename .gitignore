@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.egg-info/
+build/
+dist/
+runtime/.venv/
+runtime/models/stable-diffusion-v1-5/
+runtime/models/clip-vit-large-patch14/
+runtime/models/siglip-so400m-patch14-384/
+runtime/models/aesthetic-mlp/*.safetensors
+runtime/models/hf-home/
+runtime/models/hf-meta/
+*.pyc
+.pytest_cache/
+.DS_Store

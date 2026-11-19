@@ -1,0 +1,114 @@
+# Area "image generation, SD1.5" pre-registration: DDPO + LoRA on SD1.5 against the base alone (05 section 3.7;
+# MULTIMODAL-SPEC section 6 row 2a and its deviations). prototype, unpromotable. Unsigned: no named team has signed it.
+#
+# DRAFT (ptc-skel side, 2026-11-12). Placeholders <...> are set from the smoke run (EVAL-PLAN.md section 2) before the
+# full run; then the maintainers copy it to <data-root>/area3-sd15/gate/registration.yaml, add
+# `created_at` (the time it is written, RFC 3339 UTC, before the full run's first START in gpu-guard.log) and pin its
+# SHA-256 in spec.yaml. Values (area3-sd15 README "Power", runtime/README.md "Decisions taken"): deciding
+# T3 metric webp_lossless_bpp, lower is better, blocking, construct-aligned with the JPEG reward (R15-1); superiority
+# with margin 0; alpha 0.025 one-sided, power 0.8 (the constraint clause is reported only, so it is not combined: m = 1);
+# N 150, K 2, eval seeds 11 and 12 with common random numbers per (seed, item).
+# Sigma by internal pilot (decision): the smoke run's 20-item baseline arm and the smoke cut's 20-item arm, paired on
+# the same items and seeds; s = the SD of the per-item paired differences of webp_lossless_bpp (the mean over the two
+# repeats per item), df = 19. sigma_used = s x 1.177 (ucb80, df 19). N = 150 then detects
+# planning_effect >= 2.8016 x sigma_used / sqrt(150) = 0.2288 x sigma_used = 0.2692 x s: set planning_effect to that
+# value rounded up to two decimals (and spec.yaml `mde` to the same). The pilot uses the candidate arm of a cut, so the
+# sigma is not blinded to the direction; the registration is still written before the full run's candidate exists.
+# Any later change is an amendment: a new registration with `amends` and a new hash in spec.yaml (05:166).
+registration_version: 1
+created_at: "2026-11-13T02:09:27Z"
+registration_id: mm-a3-sd15-webp-superiority-v1
+signed_by: prototype-unsigned
+workflow: mm-a3-sd15-ddpo
+gate: quality_gate
+clause:
+  type: superiority
+  metric: webp_lossless_bpp
+  direction: lower_is_better
+  margin: 0.0                 # delta_sup = 0 (05 section 3.1)
+  alpha: 0.025                # one-sided (MULTIMODAL-SPEC section 6 evaluation side)
+  power: 0.8
+  planning_effect: 0.06   # 0.2692 x s rounded up to 2 decimals, in bpp (see the header)
+  sigma_plan: ucb80
+  unit: item
+  samples_per_item: 2
+  eval_seeds: [11, 12]        # eval_images.py --eval-seeds 11,12; noise seed derive_seed('eval', seed, item)
+  interval: cluster_bootstrap
+  blocking: true
+margin_justification: >-
+  Superiority with delta_sup = 0: any held-out reduction of the lossless WebP size per pixel counts. Prototype value,
+  not reviewed by a named team.
+sigma_pilot:
+  s: 0.2056          # SD of the 20 per-item paired differences (smoke cut minus base), bpp
+  df: 19
+  source: >-
+    Internal pilot (runtime/README.md "Decisions taken"): smoke run mm-a3-sd15-smoke (records/area3-sd15/smoke-1, cut checkpoint-2), baseline arm and smoke
+    cut epoch 2 arm of eval_images.py on the first 20 registered items, seeds 11 and 12; per-item means over the two
+    repeats, SD of the paired differences.
+baseline_pilot_mean: 10.026   # mean webp_lossless_bpp of the 20-item smoke baseline (CPU pilot: 8.1-10.2)
+construct_alignment: >-
+  webp_lossless_bpp measures the construct of the training reward jpeg_compressibility (the information content of the
+  image) with another engine (libwebp lossless, not libjpeg). A pass shows that the reward's gain transfers to another
+  codec, not that the images are better: they may be flatter or less detailed. The SigLIP check that the prompted
+  animal is still depicted is reported beside the gate, non-blocking (decision 3).
+eval_distribution:
+  item_set_hash: "sha256:0a4af3f984aacdd51fe2bed497667f62c50cb487bb991311b854a2c6cd395bd4"   # manifest of area3-sd15/items/
+# The deployment sampler: every cut's sampler.json and eval_images.py's sampler_doc at 20 steps and 512 px (EXT-125,
+# EXT-127); RFC 8785 hash sha256:2ff98254d072fd3b4926afe981c90ab46278eb88972497a1479610e78c535ccb.
+sampler:
+  eta: 1.0
+  guidance_scale: 5.0
+  latents_dtype: float32
+  negative_prompt: ''
+  noise: 'per sample: torch.Generator(''cpu'').manual_seed(seed); initial latents
+    then one draw per step'
+  num_steps: 20
+  resolution: 512
+  safety_checker: null
+  scheduler: DDIMScheduler
+  scheduler_config:
+    _class_name: DDIMScheduler
+    _diffusers_version: 0.6.0
+    _use_default_values:
+    - clip_sample_range
+    - dynamic_thresholding_ratio
+    - prediction_type
+    - rescale_betas_zero_snr
+    - sample_max_value
+    - thresholding
+    - timestep_spacing
+    beta_end: 0.012
+    beta_schedule: scaled_linear
+    beta_start: 0.00085
+    clip_sample: false
+    clip_sample_range: 1.0
+    dynamic_thresholding_ratio: 0.995
+    num_train_timesteps: 1000
+    prediction_type: epsilon
+    rescale_betas_zero_snr: false
+    sample_max_value: 1.0
+    set_alpha_to_one: false
+    skip_prk_steps: true
+    steps_offset: 1
+    thresholding: false
+    timestep_spacing: leading
+    trained_betas: null
+evaluators:
+  - id: t2i.sd15_webp_items@0.1
+    # EXT-6: SHA-256 of the canonical JSON {evaluator, metric, direction, scorer}; scorer webp_lossless_bpp at
+    # eval_images@0.1 (pillow 13.0.0, libwebp 1.6.0), code_sha256 = SHA-256 of area3-sd15/eval_images.py
+    # (sha256:5575c66f...). Changing eval_images.py changes the registry row and this hash.
+    manifest_hash: "sha256:b06def21aa01eee0f5dcf3e881a36ebe1f6764a4d2971a06b61c72cf4e71bfb7"
+multiplicity:
+  plan: single_gate
+  family: null
+analysis_code_version: ptc-skel 0.1.0
+bootstrap:
+  replicates: 10000
+  seed: 20261112
+pairing:
+  max_unpaired: 0             # every (item, repeat) must be in both arms
+min_paired: 10
+contamination:
+  allow_exact_overlap: false  # MM-11, EXT-124: item prompts against the shard and every sampled prompt
+post_hoc: false

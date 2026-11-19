@@ -1,0 +1,41 @@
+# Multimodal prototype, area "image generation, SD1.5" (MULTIMODAL-SPEC section 6 row 2a): DDPO-style
+# RL fine-tuning of Stable Diffusion 1.5 with a LoRA adapter on one RTX 4090 (prototype, unpromotable).
+# Runtime kind `venv_in_container` (MULTIMODAL-SPEC MM-32): this lock builds a host venv that is mounted read-only
+# into a pinned CUDA base image (the area-1 image). See README.md.
+#
+# Trainer: a minimal DDPO written on current diffusers + peft (`train_ddpo.py`), a port of the algorithm of
+# kvablack/ddpo-pytorch at commit 1958463f020112c9a7bc85768d296daacc2e1b4b (MIT), whose own pins (diffusers 0.17.1,
+# accelerate 0.17, transformers 4.30.2, `LoRAAttnProcessor`) do not install or run with current releases
+# (README.md "Trainer choice").
+#
+# Version rule: latest stable release at least two weeks old on 2026-11-12 (cut-off 2026-10-29), compatible.
+#   torch 2.15.0 (2026-10-28, PyPI build, CUDA 13.2 runtime from the `cuda-toolkit` wheels; host driver 610.57.04
+#   reports CUDA 13.3), torchvision 0.29.2 (2026-10-28), diffusers 0.42.1 (2026-10-27), transformers 5.21.0
+#   (2026-10-26), peft 0.21.2 (2026-10-01), accelerate 1.15.0 (2026-09-09), safetensors 0.8.0 (2026-06-09),
+#   pillow 13.0.0 (2026-10-16), numpy 2.5.4 (2026-10-10).
+[project]
+name = "gatedtrain-recipe-ddpo-sd15-runtime"
+version = "0.1.0"
+license = "Apache-2.0"
+requires-python = "==3.12.*"
+dependencies = [
+    "torch==2.15.0",
+    "torchvision==0.29.2",
+    "diffusers==0.42.1",
+    "transformers==5.21.0",
+    "peft==0.21.2",
+    "accelerate==1.15.0",
+    "safetensors==0.8.0",
+    "pillow==13.0.0",
+    "numpy==2.5.4",
+    # SigLIP's tokenizer (spiece.model) needs sentencepiece and protobuf; the constraint checker loads it offline.
+    "sentencepiece",
+    "protobuf",
+]
+
+[tool.uv]
+package = false
+# Linux x86_64 only (the platform of the published result).
+environments = ["sys_platform == 'linux' and platform_machine == 'x86_64'"]
+# Every transitive dependency resolves to a release at least two weeks old.
+exclude-newer = "2026-10-29T00:00:00Z"
