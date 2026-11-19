@@ -23,7 +23,7 @@ from _ddpo import (ADAPTER, BASE_FILES, BASE_NAME, CUT_FILES, DDPO, DEPLOYABLE, 
                    EVAL_IMAGES_SHA256, EVALUATOR_ID, LORA_WEIGHTS, METRIC, REPO, REVISION, RUNTIME_CONTAINER, SAMPLER,
                    SAMPLER_KEYS, SCORER, SEEDS, SUPPORT_ID, SUPPORT_METRIC, SUPPORT_SCORER, TRAINER_ID, DdpoScenario,
                    adapter_hash, baseline_score, build_base, build_cut, compact_hash, lora_model_hash, read_jsonl,
-                   smoke_record, write_json, write_jsonl)
+                   run_user, smoke_record, write_json, write_jsonl)
 from gatedtrain.testing.ext import IMAGE_ID, sha_of, write_canonical
 from gatedtrain.testing.support import EXIT_OK, EXIT_REFUSED, describe, file_sha256, manifest_hash, parse_errors, parse_run_dir, run_cli
 
@@ -767,7 +767,7 @@ class TestLaunch(unittest.TestCase):
         req = {"area": 2, "label": "mm-a3-sd15-full", "host_work": rec["host_work"],
                "runtime": {"kind": "venv_in_container", "image": IMAGE_ID, "venv_lock": str(self.sc.runtime / "uv.lock")},
                "framework": rec["framework"], "training_seed": 3000, "gpus": True, "network": "none",
-               "network_reason": None, "user": "1000:1000",
+               "network_reason": None, "user": run_user(),
                "env": {"HF_HUB_OFFLINE": "1", "HOME": "/tmp/home", "XDG_CACHE_HOME": "/tmp/cache",
                        "PYTHONDONTWRITEBYTECODE": "1", "PYTHONUNBUFFERED": "1", "TOKENIZERS_PARALLELISM": "false"},
                "mounts": [m if m["mode"] == "ro" else {**m, "host": str(self.out)} for m in rec["mounts"]],
@@ -952,7 +952,7 @@ class TestEvalBaseArgument(unittest.TestCase):
         req = {"area": 2, "label": "mm-a3-sd15-eval", "host_work": rec["host_work"],
                "runtime": {"kind": "venv_in_container", "image": IMAGE_ID, "venv_lock": str(sc.runtime / "uv.lock")},
                "framework": rec["framework"], "training_seed": 3000, "gpus": True, "network": "none",
-               "network_reason": None, "user": "1000:1000",
+               "network_reason": None, "user": run_user(),
                "env": {"HF_HUB_OFFLINE": "1", "HOME": "/tmp/home", "XDG_CACHE_HOME": "/tmp/cache"},
                "mounts": [rec["mounts"][0], {"host": str(out), "container": "/out", "mode": "rw"}],
                "tmpfs": ["/tmp"], "output_dir": str(out), "gpu_est_h": 0.03,

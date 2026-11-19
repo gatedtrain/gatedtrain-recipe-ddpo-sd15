@@ -28,9 +28,11 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import pwd
 import random
 import shutil
 import struct
+import unittest
 from pathlib import Path
 from typing import Any, Callable
 
@@ -96,6 +98,17 @@ COMMON = {"num_steps": 20, "eta": 1.0, "guidance_scale": 5.0, "resolution": 512,
           "train_cfg": True, "num_inner_epochs": 1, "stat_buffer_size": 16, "stat_min_count": 4,
           "reward": "jpeg_compressibility", "jpeg_quality": 95, "precision": "fp16", "gradient_checkpointing": True,
           "allow_tf32": True}
+
+
+def run_user() -> str:
+    """The container's `<uid>:<gid>` in fixture requests and records: the uid running the tests and its primary group,
+    so the output directories the tests create are owned by the container's uid (EXT-63) whoever runs them. The launch
+    rules refuse root, so a test that needs it skips under uid 0."""
+    uid = os.getuid()
+    if uid == 0:
+        raise unittest.SkipTest("the launch rules refuse a container running as root (uid 0); run the tests as a "
+                                "non-root user")
+    return f"{uid}:{pwd.getpwuid(uid).pw_gid}"
 
 
 def sha256_text(data: bytes) -> str:
@@ -493,7 +506,7 @@ class DdpoScenario:
                         "full", "--out", "/out", "--seed", str(SEED), "--epochs", "3"],
                "mounts": [{"host": str(self.runtime), "container": RUNTIME_CONTAINER, "mode": "ro"},
                           {"host": str(self.stage_out), "container": "/out", "mode": "rw"}],
-               "tmpfs": ["/tmp"], "network": "none", "network_reason": None, "user": "1000:1000",
+               "tmpfs": ["/tmp"], "network": "none", "network_reason": None, "user": run_user(),
                "env_names": list(ENV_NAMES), "gpu_est_h": 1.3, "gpu_used_h": 4.43,
                "output_dir": str(self.stage_out), "output_root": str(self.output_root),
                "gpu_step_sha256": file_sha256(self.host_work / "bin" / "gpu-step.sh"), "allow_network": False,
