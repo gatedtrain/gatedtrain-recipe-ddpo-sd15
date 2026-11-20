@@ -14,6 +14,7 @@ SHA-256s are recorded in RESULT.md and eval_images.py's is the registered scorer
 
 from __future__ import annotations
 
+import ast
 import hashlib
 import importlib.util
 import json
@@ -476,6 +477,30 @@ class TestRunFiles(Tmp):
         self.assertEqual(doc["env_freeze_sha256"], T.sha256_file(out / "env-freeze.txt"))
 
 
+def main_block_sha256(path: Path, blocks) -> str:
+    """SHA-256 of main()'s top-level statements in `blocks`, each (first, last): from the statement matching `first`
+    (it must match exactly one) to the next one matching `last`, both included, as ast.unparse writes them (comments
+    and layout do not count)."""
+    tree = ast.parse(path.read_text(encoding="utf-8"))
+    body = next(n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == "main").body
+    parts = []
+    for first, last in blocks:
+        starts = [k for k, n in enumerate(body) if first(n)]
+        if len(starts) != 1:
+            raise AssertionError(f"{path.name}: main() has {len(starts)} statements matching the block's first anchor")
+        end = next(k for k in range(starts[0], len(body)) if last(body[k]))
+        parts.extend(ast.unparse(n) for n in body[starts[0]:end + 1])
+    return "sha256:" + hashlib.sha256("\n".join(parts).encode("utf-8")).hexdigest()
+
+
+def assigns(name: str):
+    return lambda n: isinstance(n, ast.Assign) and any(isinstance(t, ast.Name) and t.id == name for t in n.targets)
+
+
+def epoch_loop(n) -> bool:
+    return isinstance(n, ast.For) and isinstance(n.target, ast.Name) and n.target.id == "epoch"
+
+
 # ---------------------------------------------------------------------------
 # A whole run's logs, written with the runtime's functions, through the adapter's consumption check
 # ---------------------------------------------------------------------------
@@ -572,6 +597,16 @@ class TestRunThroughTheLedger(Tmp):
 
     def test_rerun_after_preemption_records_its_attempt(self):
         self.check("cpu-sanity", attempts=2)
+
+    # main()'s statements that run_logs follows (from `global_step = 0` through the epoch loop). A change
+    # there (not to comments or layout) changes this hash: bring run_logs in line with main(), then update it.
+    LEDGER_BLOCK_SHA256 = "sha256:45d833544279442711e0f8950e7c0cdae9356122585fe059cc29c263f5d5fb41"
+
+    def test_replica_tracks_mains_bookkeeping(self):
+        blocks = [(assigns("global_step"), epoch_loop)]
+        self.assertEqual(main_block_sha256(RUNTIME / "train_ddpo.py", blocks), self.LEDGER_BLOCK_SHA256,
+                         "main()'s ledger bookkeeping changed: update the replica in TestRunThroughTheLedger and this "
+                         "hash")
 
 
 # ---------------------------------------------------------------------------
