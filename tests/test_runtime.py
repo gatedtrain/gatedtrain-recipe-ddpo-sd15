@@ -691,6 +691,23 @@ class TestEvalImages(Tmp):
         jpeg = R.EVALUATOR_ROWS["t2i.sd15_jpeg_items@0.1"]["scorer"]["version"]
         self.assertTrue(jpeg.endswith(f"quality {T.COMMON['jpeg_quality']}"))
 
+    def test_summary_stats(self):
+        # stats() is nested in evaluate(); it is taken from the script's source and run on its own (it needs math)
+        import math
+
+        tree = ast.parse((RUNTIME / "eval_images.py").read_text(encoding="utf-8"))
+        node = next(n for n in ast.walk(tree) if isinstance(n, ast.FunctionDef) and n.name == "stats")
+        ns = {"math": math}
+        exec(compile(ast.Module(body=[node], type_ignores=[]), str(RUNTIME / "eval_images.py"), "exec"), ns)
+        stats = ns["stats"]
+        # 0.1 + 1e-12 is the same value as 0.1 to 9 decimals: two distinct values among four scores
+        got = stats([0.1, 0.2, None, 0.2, 0.1 + 1e-12])
+        self.assertEqual((got["n"], got["min"], got["max"], got["distinct"]), (4, 0.1, 0.2, 2))
+        self.assertAlmostEqual(got["mean"], 0.15, places=12)
+        self.assertAlmostEqual(got["sd"], math.sqrt(4 * 0.05 ** 2 / 3), places=12)     # sample sd, n - 1 = 3
+        self.assertEqual(stats([None]), {"n": 0})
+        self.assertIsNone(stats([0.5])["sd"])
+
     def test_link_or_copy(self):
         src = self.tmp / "a.png"
         src.write_bytes(b"png")
