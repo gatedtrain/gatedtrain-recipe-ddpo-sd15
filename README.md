@@ -40,7 +40,9 @@ One registered run: 12 epochs of 64 samples (768 samples; cuts 4, 8 and 12), 0.4
 |---|---|
 | Baseline (SD1.5) | 9.811 bpp |
 | Candidate (cut 12) | 9.382 bpp |
-| Gate | **PASS**: improvement 0.4288 bpp, 95% cluster-bootstrap interval [0.3748, 0.4859], p <= 6.2e-05 |
+| Gate | **PASS** under the original registration; **INCONCLUSIVE (post_hoc)** under the registration amended for the renames: improvement 0.4288 bpp, 95% cluster-bootstrap interval [0.3748, 0.4859], p <= 6.2e-05 |
+
+The amendment is post hoc: the scorer the registration pins had changed after the gate, in a cleanup before publication, so the amendment also carries a new evaluator identity.
 
 The achieved power is 0.567 at the declared minimum detectable effect of 0.06, and the report marks it
 `underpowered`; the interval is far from 0, so the pass stands. The deciding metric is construct-aligned with the
