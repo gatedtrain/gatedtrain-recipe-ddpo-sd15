@@ -1,22 +1,53 @@
 # gatedtrain recipe: SD1.5 DDPO + LoRA (JPEG compressibility)
 
-A [gatedtrain](https://github.com/gatedtrain/gatedtrain) recipe: a port of DDPO (kvablack/ddpo-pytorch) on diffusers and peft trains a
-LoRA (rank 4) on Stable Diffusion 1.5 with a JPEG-compressibility reward on ImageNet animal-class prompts, and gatedtrain
-gates the last LoRA cut against the plain base on 150 held-out prompts (two seeds each) with a lossless-WebP size
-metric, a different codec from the reward's. One GPU (RTX 4090). Prototype.
+This recipe teaches Stable Diffusion 1.5 to draw images that compress better as JPEG, and lets
+[gatedtrain](https://github.com/gatedtrain/gatedtrain) decide whether that gain holds up on a different measure. A port
+of DDPO (kvablack/ddpo-pytorch) on diffusers and peft trains a LoRA (rank 4) with a JPEG-compressibility reward on
+ImageNet animal-class prompts, on one GPU (RTX 4090). gatedtrain then gates the last LoRA cut against the plain base on
+150 held-out prompts (two seeds each) with a lossless-WebP size metric, a different codec from the reward's, by a rule
+registered before training.
 
-Code comments, tests and `RESULT.md` cite records of the framework's development: its review rounds ("review round
-8", "review 9 L2") and ids of its internal issue lists (`G-21`). Those records are not published; the decisions this
-recipe depends on are recorded in `runtime/README.md` "Decisions taken".
+A recipe is a ready-made external run for gatedtrain: the training code with its locked environment, plus an
+*adapter*, the small plugin through which gatedtrain reads the run's outputs. gatedtrain does not start the training;
+you run it.
 
-## Layout
+This is a prototype: the result below is one registered run, not a benchmark claim.
 
-| Path | What |
+## How it works
+
+```mermaid
+flowchart LR
+    fetch["fetch_models.py:<br/>SD1.5, CLIP and SigLIP, pinned"] --> train["train_ddpo.py in a container<br/>(DDPO, LoRA rank 4, one GPU)"]
+    prompts["prompts/train.jsonl"] --> train
+    train --> cuts["LoRA cuts 4, 8 and 12<br/>and consumption logs"]
+    cuts --> eval["eval_images.py: plain base and cut 12<br/>on 150 prompts, 2 seeds each"]
+    items["items/items.jsonl"] --> eval
+    eval --> arms["Arm files: per-image results"]
+    arms --> collect["gatedtrain ext-collect"]
+    cuts -->|"read through the adapter ddpo_sd15"| collect
+    collect --> gate{"Gate"}
+    gate --> report["Gate report, consumption ledger"]
+```
+
+`gatedtrain ext-launch` checks the run request and prints the container command; you run it. The steps, flags and
+arm files are explained in gatedtrain's [External runs](https://gatedtrain.github.io/gatedtrain/external-runs/) guide.
+
+## Result
+
+One registered run: 12 epochs of 64 samples (768 samples; cuts 4, 8 and 12), 0.41 GPU-hours on one RTX 4090.
+
+| | `webp_lossless_bpp` on 150 prompts x 2 seeds (lower is better) |
 |---|---|
-| `src/gatedtrain_recipe_ddpo_sd15/` | the gatedtrain adapter `ddpo_sd15` (`adapter.py`, built on gatedtrain's `gatedtrain.families.diffusers_lora.DiffusersLoraAdapter`) and its registry rows (`rows.py`), registered through the `gatedtrain.adapters` entry point |
-| `runtime/` | what runs in the container: `train_ddpo.py` (the DDPO port), `eval_images.py` (the image evaluator: WebP lossless bpp, JPEG q95 kB, the SigLIP constraint), `fetch_models.py`, the training prompts (`prompts/`), the registered item set (`items/`), the constraint set, the model pins (`models/MODELS.json`), and its own `pyproject.toml` and `uv.lock` |
-| `tests/` | the adapter's tests on fixture runs (no GPU, no model weights needed) and gatedtrain's conformance check |
-| `results/2026-11-13/` | the gate files of the published result (redacted copies: host paths replaced by placeholders; see `RESULT.md`) |
+| Baseline (SD1.5) | 9.811 bpp |
+| Candidate (cut 12) | 9.382 bpp |
+| Gate | **PASS**: improvement 0.4288 bpp, 95% cluster-bootstrap interval [0.3748, 0.4859], p <= 6.2e-05 |
+
+The achieved power is 0.567 at the declared minimum detectable effect of 0.06, and the report marks it
+`underpowered`; the interval is far from 0, so the pass stands. The deciding metric is construct-aligned with the
+reward: a pass shows that the reward's gain transfers to another codec, not that the images are better.
+
+`RESULT.md` has the full record: the registration, power, the SigLIP constraint, overlap with training, the impact
+query and the re-collection with this repository's adapter. The gate files are under `results/2026-11-13/`.
 
 ## Setup
 
@@ -38,15 +69,24 @@ Trust: `fetch_models.py --aesthetic-from` unpickles the aesthetic-predictor `.pt
 after checking its SHA-256); the LoRA cuts are safetensors. Load only checkpoints and model files you produced or
 verified against the pinned hashes.
 
+## Layout
+
+| Path | What |
+|---|---|
+| `src/gatedtrain_recipe_ddpo_sd15/` | the gatedtrain adapter `ddpo_sd15` (`adapter.py`, built on gatedtrain's `gatedtrain.families.diffusers_lora.DiffusersLoraAdapter`) and its registry rows (`rows.py`), registered through the `gatedtrain.adapters` entry point |
+| `runtime/` | what runs in the container: `train_ddpo.py` (the DDPO port), `eval_images.py` (the image evaluator: WebP lossless bpp, JPEG q95 kB, the SigLIP constraint), `fetch_models.py`, the training prompts (`prompts/`), the registered item set (`items/`), the constraint set, the model pins (`models/MODELS.json`), and its own `pyproject.toml` and `uv.lock` |
+| `tests/` | the adapter's tests on fixture runs (no GPU, no model weights needed) and gatedtrain's conformance check |
+| `results/2026-11-13/` | the gate files of the published result (redacted copies: host paths replaced by placeholders; see `RESULT.md`) |
+
 ## Tests
 
 ```bash
 python -m unittest discover -s tests -t tests
 ```
 
-## Result
-
-See `RESULT.md`.
+Code comments, tests and `RESULT.md` cite records of the framework's development: its review rounds ("review round
+8", "review 9 L2") and ids of its internal issue lists (`G-21`). Those records are not published; the decisions this
+recipe depends on are recorded in `runtime/README.md` "Decisions taken".
 
 ## Data and licenses
 
